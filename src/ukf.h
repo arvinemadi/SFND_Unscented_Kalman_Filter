@@ -45,10 +45,7 @@ public:
 
 	void UKF::UpdateLidar(MeasurementPackage meas_package, Eigen::MatrixXd& Zsig, Eigen::VectorXd& z_pred, Eigen::MatrixXd& S);
 
-
 	void UKF::AugmentedSigmaPoints(Eigen::MatrixXd* Xsig_out);
-
-	//void UKF::GenerateSigmaPoints(MatrixXd* Xsig_out);
 
 	void UKF::SigmaPointPrediction(Eigen::MatrixXd* Xsig_out, Eigen::MatrixXd& Xsig_aug, double delta_t);
 
@@ -76,8 +73,6 @@ public:
 
 	// predicted sigma points matrix
 	Eigen::MatrixXd Xsig_pred_;
-
-
 
 	// time when the state is true, in us
 	long long time_us_;
@@ -114,9 +109,6 @@ public:
 
 	// Sigma point spreading parameter
 	double lambda_;
-
-	// Predicted sigma points in state space
-	//MatrixXd Xsig_pred_;
 
 };
 
