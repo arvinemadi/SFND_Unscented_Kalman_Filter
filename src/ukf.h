@@ -43,17 +43,17 @@ public:
 	 */
 	void UpdateRadar(MeasurementPackage meas_package, Eigen::MatrixXd& Zsig, Eigen::VectorXd& z_pred, Eigen::MatrixXd& S);
 
-	void UKF::UpdateLidar(MeasurementPackage meas_package, Eigen::MatrixXd& Zsig, Eigen::VectorXd& z_pred, Eigen::MatrixXd& S);
+	void UpdateLidar(MeasurementPackage meas_package, Eigen::MatrixXd& Zsig, Eigen::VectorXd& z_pred, Eigen::MatrixXd& S);
 
-	void UKF::AugmentedSigmaPoints(Eigen::MatrixXd* Xsig_out);
+	void AugmentedSigmaPoints(Eigen::MatrixXd* Xsig_out);
 
-	void UKF::SigmaPointPrediction(Eigen::MatrixXd* Xsig_out, Eigen::MatrixXd& Xsig_aug, double delta_t);
+	void SigmaPointPrediction(Eigen::MatrixXd* Xsig_out, Eigen::MatrixXd& Xsig_aug, double delta_t);
 
-	void UKF::PredictMeanAndCovariance(Eigen::VectorXd* X_out, Eigen::MatrixXd* P_out, Eigen::MatrixXd& Xsig_pred);
+	void PredictMeanAndCovariance(Eigen::VectorXd* X_out, Eigen::MatrixXd* P_out, Eigen::MatrixXd& Xsig_pred);
 
-	void UKF::PredictRadarMeasurement(Eigen::VectorXd* z_out, Eigen::MatrixXd* S_out, Eigen::MatrixXd* Zsig_out);
+	void PredictRadarMeasurement(Eigen::VectorXd* z_out, Eigen::MatrixXd* S_out, Eigen::MatrixXd* Zsig_out);
 
-	void UKF::PredictLidarMeasurement(Eigen::VectorXd* z_out, Eigen::MatrixXd* S_out, Eigen::MatrixXd* Zsig_out);
+	void PredictLidarMeasurement(Eigen::VectorXd* z_out, Eigen::MatrixXd* S_out, Eigen::MatrixXd* Zsig_out);
 
 
 	// initially set to false, set to true in first call of ProcessMeasurement

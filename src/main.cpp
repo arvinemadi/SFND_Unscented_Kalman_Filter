@@ -3,6 +3,8 @@
 // for exploring self-driving car sensors
 
 //#include "render/render.h"
+#include<iostream>;
+#include "C:\Users\HP\Downloads\boost_1_63_0\libs\math\dot_net_example\boost_math\stdafx.h"
 #include "highway.h"
 
 int main(int argc, char** argv)
