@@ -1,4 +1,4 @@
-# SFND_Unscented_Kalman_Filter - ALMOST COMPLETE - NEED CLEAN UP - WIP
+# SFND_Unscented_Kalman_Filter - ALMOST COMPLETE - CODE CLEANED UP - MORE COMENTS WILL BE ADDED - WIP
 Sensor Fusion UKF Highway Project Starter Code
 
 <img src="media/ukf_highway_tracked.gif" width="700" height="400" />
