@@ -21,14 +21,14 @@ The red spheres above cars represent the (x,y) lidar detection and the purple li
 Step taken:
 - Initializing the state variable and covariance matrix. CTRV (constant turn rate and velocity magnitude model has been used)
 - Prediction:
--- Augmented sigma points are created for the current state and covariance matrix
--- New sigma points are predicted using the time lapsed from the last measurement
--- Using the new sigma points, new state and covariance matrix are predicted
+	- Augmented sigma points are created for the current state and covariance matrix
+	- New sigma points are predicted using the time lapsed from the last measurement
+	- Using the new sigma points, new state and covariance matrix are predicted
 - Measurement update depending if the measurement was from Radar or Lidar but the process steps are the same
--- All sigma points are mapped into measurement space (for Radar, r, phi, and rate change of r and for Lidar x, and y locations)
--- Mean and covariance matrix of the mapped sigma points are calculated. Since measurement noise is independent, measurement noise covariance matrix R is added to S.
--- Cross-correlation between predicted sigma points in the state space and predicted sigma points in measurement space are used together with covariance matrix of the measured noise to find K (Kalman gain)
--- Using the new measured data, the new state is updated with a new time stamp
+	- All sigma points are mapped into measurement space (for Radar, r, phi, and rate change of r and for Lidar x, and y locations)
+	- Mean and covariance matrix of the mapped sigma points are calculated. Since measurement noise is independent, measurement noise covariance matrix R is added to S.
+	- Cross-correlation between predicted sigma points in the state space and predicted sigma points in measurement space are used together with covariance matrix of the measured noise to find K (Kalman gain)
+	- Using the new measured data, the new state is updated with a new time stamp
 
 ## Reference:
 - The unscented Kalman Filter for Nonlinear Estimation: https://groups.seas.harvard.edu/courses/cs281/papers/unscented.pdf
