@@ -1,17 +1,11 @@
 # SFND Unscented Kalman Filter - COMPLETED PROJECT 
-Sensor Fusion UKF Highway Project Starter Code
+Sensor Fusion UKF Highway Project
 
 <img src="media/ukf_highway_tracked.gif" width="700" height="400" />
 
 In this project an Unscented Kalman Filter is implemented to estimate the state of multiple cars on a highway using noisy lidar and radar measurements. Passing the project required obtaining RMSE values that were lower than the tolerance specifications. 
 
-The main program can be built and ran by doing the following from the project top directory.
 
-1. mkdir build
-2. cd build
-3. cmake ..
-4. make
-5. ./ukf_highway
 
 The base and data from Udacity. The programs in src/ukf.cpp, and src/ukf.h have been completed. The program main.cpp has several visualization features that can be modified.
 
@@ -41,6 +35,13 @@ Step taken:
 - UKF tutorial: https://www.cse.sc.edu/~terejanu/files/tutorialUKF.pdf
 - ROS implements EKF and UKF. Well documented and can be used to fuse different sensors: http://wiki.ros.org/robot_localization
 ---
+The main program can be built and ran by doing the following from the project top directory.
+
+1. mkdir build
+2. cd build
+3. cmake ..
+4. make
+5. ./ukf_highway
 
 ## Other Important Dependencies
 * cmake >= 3.5
