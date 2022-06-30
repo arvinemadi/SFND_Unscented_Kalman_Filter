@@ -1,9 +1,9 @@
-# SFND_Unscented_Kalman_Filter - ALMOST COMPLETE - CODE CLEANED UP - MORE COMENTS WILL BE ADDED - WIP
+# SFND Unscented Kalman Filter - COMPLETED PROJECT 
 Sensor Fusion UKF Highway Project Starter Code
 
 <img src="media/ukf_highway_tracked.gif" width="700" height="400" />
 
-In this project you will implement an Unscented Kalman Filter to estimate the state of multiple cars on a highway using noisy lidar and radar measurements. Passing the project requires obtaining RMSE values that are lower that the tolerance outlined in the project rubric. 
+In this project an Unscented Kalman Filter is implemented to estimate the state of multiple cars on a highway using noisy lidar and radar measurements. Passing the project required obtaining RMSE values that were lower than the tolerance specifications. 
 
 The main program can be built and ran by doing the following from the project top directory.
 
@@ -13,9 +13,7 @@ The main program can be built and ran by doing the following from the project to
 4. make
 5. ./ukf_highway
 
-Note that the programs that need to be written to accomplish the project are src/ukf.cpp, and src/ukf.h
-
-The program main.cpp has already been filled out, but feel free to modify it.
+The base and data from Udacity. The programs in src/ukf.cpp, and src/ukf.h have been completed. The program main.cpp has several visualization features that can be modified.
 
 <img src="media/ukf_highway.png" width="700" height="400" />
 
@@ -26,6 +24,22 @@ it's own UKF object generated for it, and will update each indidual one during e
 
 The red spheres above cars represent the (x,y) lidar detection and the purple lines show the radar measurements with the velocity magnitude along the detected angle. The Z axis is not taken into account for tracking, so you are only tracking along the X/Y axis.
 
+Step taken:
+- Initializing the state variable and covariance matrix. CTRV (constant turn rate and velocity magnitude model has been used)
+- Prediction:
+-- Augmented sigma points are created for the current state and covariance matrix
+-- New sigma points are predicted using the time lapsed from the last measurement
+-- Using the new sigma points, new state and covariance matrix are predicted
+- Measurement update depending if the measurement was from Radar or Lidar but the process steps are the same
+-- All sigma points are mapped into measurement space (for Radar, r, phi, and rate change of r and for Lidar x, and y locations)
+-- Mean and covariance matrix of the mapped sigma points are calculated. Since measurement noise is independent, measurement noise covariance matrix R is added to S.
+-- Cross-correlation between predicted sigma points in the state space and predicted sigma points in measurement space are used together with covariance matrix of the measured noise to find K (Kalman gain)
+-- Using the new measured data, the new state is updated with a new time stamp
+
+## Reference:
+- The unscented Kalman Filter for Nonlinear Estimation: https://groups.seas.harvard.edu/courses/cs281/papers/unscented.pdf
+- UKF tutorial: https://www.cse.sc.edu/~terejanu/files/tutorialUKF.pdf
+- ROS implements EKF and UKF. Well documented and can be used to fuse different sensors: http://wiki.ros.org/robot_localization
 ---
 
 ## Other Important Dependencies
@@ -69,8 +83,3 @@ If you'd like to generate your own radar and lidar modify the code in `highway.h
 change how measurements are taken, for instance lidar markers could be the (x,y) center of bounding boxes by scanning the PCD environment
 and performing clustering. This is similar to what was done in Sensor Fusion Lidar Obstacle Detection.
 
-## Project Instructions and Rubric
-
-This information is only accessible by people who are already enrolled in Sensor Fusion. 
-If you are enrolled, see the project page in the classroom
-for instructions and the project rubric.
